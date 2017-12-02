@@ -22,8 +22,8 @@ public class Juego extends Canvas implements Runnable {
     private static final String NOMBRE = "Juego";
     private static int aps = 0;
     private static int fps = 0;
-    private static final int x = 0;
-    private static final int y = 0;
+    private static int x = 0;
+    private static int y = 0;
     private static volatile boolean funcionando = false;
     private static Thread hilo;
     private static Teclado teclado;
@@ -76,36 +76,36 @@ public class Juego extends Canvas implements Runnable {
         teclado.actualizar();
         //Inicio controles de movimiento
         if (teclado.arriba || teclado.flechaArriba) {
-            System.out.println("Movimiento arriba");
+            y++;
         }
         if (teclado.abajo || teclado.flechaAbajo) {
-            System.out.println("Movimiento abajo");
+            y--;
         }
         if (teclado.izquierda || teclado.flechaIzquierda) {
-            System.out.println("Movimiento izquierda");
+            x++;
         }
         if (teclado.derecha || teclado.flechaDerecha) {
-            System.out.println("Movimiento derecha");
+            x--;
         }
         //Fin controles de movimiento
         //Inicio otros controles
         if (teclado.espacio) {
-            System.out.println("Tecla espacio");
+
         }
         if (teclado.letraQ) {
-            System.out.println("Tecla Q");
+
         }
         if (teclado.letraE) {
-            System.out.println("Tecla E");
+
         }
         if (teclado.letraZ) {
-            System.out.println("Tecla Z");
+
         }
         if (teclado.letraX) {
-            System.out.println("Tecla X");
+
         }
         if (teclado.letraC) {
-            System.out.println("Tecla C");
+
         }
         //Fin otros controles
         aps++;
