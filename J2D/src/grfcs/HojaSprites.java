@@ -1,4 +1,4 @@
-package graficos;
+package grfcs;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;

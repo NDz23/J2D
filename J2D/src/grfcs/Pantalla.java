@@ -1,4 +1,4 @@
-package graficos;
+package grfcs;
 
 public final class Pantalla {
 

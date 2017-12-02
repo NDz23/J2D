@@ -1,7 +1,7 @@
-package juego;
+package jg;
 
-import control.Teclado;
-import graficos.Pantalla;
+import ctrl.Teclado;
+import grfcs.Pantalla;
 import java.awt.BorderLayout;
 import java.awt.Canvas;
 import java.awt.Dimension;
