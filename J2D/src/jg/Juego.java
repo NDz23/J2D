@@ -1,5 +1,10 @@
 package jg;
 
+/**
+ *
+ * @author diazn
+ */
+
 import ctrl.Teclado;
 import grfcs.Pantalla;
 import java.awt.BorderLayout;

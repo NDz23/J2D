@@ -1,5 +1,10 @@
 package grfcs;
 
+/**
+ *
+ * @author diazn
+ */
+
 public final class Sprite {
 
     private final int lado;
@@ -10,7 +15,7 @@ public final class Sprite {
     
     //Inicio coleccion de sprites
     //public static Sprite asfalto = new Sprite(tamañoSprite, columna, fila, HojaSprites.nombreHoja);
-    public static Sprite asfalto = new Sprite(32, 0, 0, HojaSprites.desierto);
+    public static final Sprite ASFALTO = new Sprite(32, 0, 0, HojaSprites.desierto);
     //Fin coleccion de sprites
 
     public Sprite(final int lado, final int columna, final int fila, final HojaSprites hoja) {
@@ -26,4 +31,9 @@ public final class Sprite {
             }
         }
     }
+
+    public int getLado() {
+        return lado;
+    }
+    
 }

@@ -1,5 +1,12 @@
 package grfcs;
 
+/**
+ *
+ * @author diazn
+ */
+
+import mp.cdro.Cuadro;
+
 public final class Pantalla {
 
     private final int ancho;
@@ -37,8 +44,31 @@ public final class Pantalla {
                     continue;
                 }
                 //Dibujando la pantalla
-                pixeles[posicionX + posicionY * ancho] = Sprite.asfalto.pixeles[(x & MASCARA_SPRITE) + (y & MASCARA_SPRITE) * LADO_SPRITE];
+                pixeles[posicionX + posicionY * ancho] = Sprite.ASFALTO.pixeles[(x & MASCARA_SPRITE) + (y & MASCARA_SPRITE) * LADO_SPRITE];
             }
         }
     }
+
+    public void mostrarCuadro(int compensacionX, int compensacionY, Cuadro cuadro) {
+        for (int y = 0; y < cuadro.sprite.getLado(); y++) {
+            int posicionY = y + compensacionY;
+            for (int x = 0; x < cuadro.sprite.getLado(); x++) {
+                int posicionX = x + compensacionY;
+                if (posicionX < 0 || posicionX > ancho || posicionY < 0 || posicionY > alto) {
+                    break;
+                }
+                pixeles[posicionX + posicionY * ancho] = cuadro.sprite.pixeles[x + y * cuadro.sprite.getLado()];
+            }
+        }
+    }
+
+    public int getAncho() {
+        return ancho;
+    }
+
+    public int getAlto() {
+        return alto;
+    }
+    
+    
 }
