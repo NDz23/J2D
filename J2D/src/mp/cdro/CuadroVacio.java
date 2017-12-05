@@ -7,9 +7,9 @@ package mp.cdro;
 
 import grfcs.Sprite;
 
-public class CuadroAsfalto extends Cuadro {
+public class CuadroVacio extends Cuadro {
     
-    public CuadroAsfalto(Sprite sprite) {
+    public CuadroVacio(Sprite sprite) {
         super(sprite);
     }
 

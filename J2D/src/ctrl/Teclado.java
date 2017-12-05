@@ -23,6 +23,8 @@ public final class Teclado implements KeyListener {
     public boolean flechaIzquierda;
     public boolean flechaDerecha;
     //Otras
+    public boolean mayus;
+    public boolean salir;
     public boolean espacio;
     public boolean letraE;
     public boolean letraQ;
@@ -42,6 +44,8 @@ public final class Teclado implements KeyListener {
         flechaIzquierda = teclas[KeyEvent.VK_LEFT];
         flechaDerecha = teclas[KeyEvent.VK_RIGHT];
         //Otras
+        mayus = teclas[KeyEvent.VK_SHIFT];
+        salir = teclas[KeyEvent.VK_ESCAPE];
         espacio = teclas[KeyEvent.VK_SPACE];
         letraE = teclas[KeyEvent.VK_E];
         letraQ = teclas[KeyEvent.VK_Q];

@@ -11,13 +11,13 @@ public final class Pantalla {
 
     private final int ancho;
     private final int alto;
+    
+    private int diferenciaX;
+    private int diferenciaY;
 
     public final int[] pixeles;
 
-    //Inicio temporal
-    private final static int LADO_SPRITE = 32;
-    private final static int MASCARA_SPRITE = LADO_SPRITE - 1;
-    //Fin temporal
+
 
     public Pantalla(final int ancho, final int alto) {
         this.alto = alto;
@@ -32,30 +32,21 @@ public final class Pantalla {
         }
     }
 
-    public void mostrar(final int compensacionX, final int compensacionY) {
-        for (int y = 0; y < alto; y++) {
-            int posicionY = y + compensacionY;
-            if (posicionY < 0 || posicionY >= alto) {
-                continue;
-            }
-            for (int x = 0; x < ancho; x++) {
-                int posicionX = x + compensacionX;
-                if (posicionX < 0 || posicionX >= ancho) {
-                    continue;
-                }
-                //Dibujando la pantalla
-                pixeles[posicionX + posicionY * ancho] = Sprite.ASFALTO.pixeles[(x & MASCARA_SPRITE) + (y & MASCARA_SPRITE) * LADO_SPRITE];
-            }
-        }
-    }
+
 
     public void mostrarCuadro(int compensacionX, int compensacionY, Cuadro cuadro) {
+        compensacionX -= diferenciaX;
+        compensacionY -= diferenciaY;
+        
         for (int y = 0; y < cuadro.sprite.getLado(); y++) {
             int posicionY = y + compensacionY;
             for (int x = 0; x < cuadro.sprite.getLado(); x++) {
                 int posicionX = x + compensacionY;
-                if (posicionX < 0 || posicionX > ancho || posicionY < 0 || posicionY > alto) {
+                if (posicionX < -cuadro.sprite.getLado() || posicionX >= ancho || posicionY < 0 || posicionY >= alto) {
                     break;
+                }
+                if (posicionX < 0) {
+                    posicionX = 0;
                 }
                 pixeles[posicionX + posicionY * ancho] = cuadro.sprite.pixeles[x + y * cuadro.sprite.getLado()];
             }
@@ -69,6 +60,10 @@ public final class Pantalla {
     public int getAlto() {
         return alto;
     }
-    
+
+    public void setDiferenciaXY(final int diferenciaX,final int diferenciaY) {
+        this.diferenciaX = diferenciaX;
+        this.diferenciaY = diferenciaY;
+    }
     
 }
